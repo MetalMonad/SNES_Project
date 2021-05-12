@@ -41,8 +41,10 @@ public class SNESLand {
                 controller1.press_b();
             }else if(userInput.toLowerCase().equals("x") || userInput.toLowerCase().equals("h x")){
                 controller1.press_x();
-            }else if(userInput.toLowerCase().equals("y") || userInput.toLowerCase().equals("h y")){
+            }else if(userInput.toLowerCase().equals("y")){
                 controller1.press_y();
+            }else if(userInput.toLowerCase().equals("h y")){
+                controller1.hold_Y();
             }                
             buttonPress(controller1);
             System.out.println("Next input: ");
