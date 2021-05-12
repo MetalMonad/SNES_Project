@@ -1,0 +1,177 @@
+/**
+ *
+ * @author Rob
+ */
+package SNES;
+
+public class SNESController {
+    public boolean x = false;
+    public boolean y = false;
+    public boolean a = false;
+    public boolean b = false;
+    public boolean left_trigger = false;
+    public boolean right_trigger = false;
+    public boolean select = false;
+    public boolean start = false;
+    public boolean padUp = false;
+    public boolean padDown = false;
+    public boolean padLeft = false;
+    public boolean padRight = false;
+    public boolean holdY = false;
+    public boolean holdLeft = false;
+    public boolean holdRight = false;
+
+    public void press_x(){
+        System.out.println("X button pressed");
+        if(x == false){
+            x = true;
+        } else {
+            x = false;
+        }
+    }
+
+    public void press_y(){
+        System.out.println("Y button pressed");
+        if(y == false){
+            y = true;
+        } else {
+            y = false;
+        }
+    }
+
+    public void press_a(){
+        System.out.println("A button pressed");
+        if(a == false){
+            a = true;
+        } else {
+            a = false;
+        }
+
+    }
+    public void press_b(){
+        System.out.println("B button pressed");
+        if(b == false){
+            b = true;
+        } else {
+            b = false;
+        }
+    }
+    
+    public void press_leftTrig(){
+        System.out.println("Left trigger pressed");
+        if(left_trigger == false){
+            left_trigger = true;
+        } else {
+            left_trigger = false;
+        }
+    }
+    
+    public void press_rightTrig(){
+        System.out.println("Right trigger pressed");
+        if(right_trigger == false){
+            right_trigger = true;
+        } else {
+            right_trigger = false;
+        }
+    }
+    
+    public void press_Up(){
+        System.out.println("Pressed up");
+        if(padUp == false){
+            padUp = true;
+        } else {
+            padUp = false;
+        }
+    }
+    
+    public void press_Down(){
+        System.out.println("Pressed down");
+        if(padDown == false){
+            padDown = true;
+        } else {
+            padDown = false;
+        }
+    }
+    
+    public void press_Left(){
+        System.out.println("Pressed Left");
+        if(padLeft == false){
+            padLeft = true;
+        } else {
+            padLeft = false;
+        }
+    }
+    
+    public void press_Right(){
+        System.out.println("Pressed Right");
+        if(padRight == false){
+            padRight = true;
+        } else {
+            padRight = false;
+        }
+    }
+    
+    public void press_Start(){
+        System.out.println("Pressed Start");
+        if(start == false){
+            start = true;
+        } else {
+            start = false;
+        }
+    }
+    
+    public void press_Select(){
+    System.out.println("Pressed select");
+        if(select == false){
+            select = true;
+        } else {
+            select = false;
+        }
+    }
+    
+    public void hold_Y(){
+        System.out.println("Holding Y!");
+        if(holdY == false){
+            holdY = true;
+        }else{
+            holdY = false;
+        }
+    }
+    
+    public void hold_Left(){
+        System.out.println("Holding Left!");
+        if(holdLeft == false){
+            holdLeft = true;
+        }else{
+            holdLeft = false;
+        }
+    }
+    
+    public void hold_Right(){
+        System.out.println("Holding Right!");
+        if(holdRight == false){
+            holdRight = true;
+        }else{
+            holdRight = false;
+        }
+    }
+    
+    //unused, but good to have in my opinion.
+    public void defaultButtons(){
+    x = false;
+    y = false;
+    a = false;
+    b = false;
+    left_trigger = false;
+    right_trigger = false;
+    select = false;
+    start = false;
+    padUp = false;
+    padDown = false;
+    padLeft = false;
+    padRight = false;
+    holdY = false;
+    holdLeft = false;
+    holdRight = false;
+    }
+}
