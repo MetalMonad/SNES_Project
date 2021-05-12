@@ -1,0 +1,99 @@
+/**
+ *
+ * @author Rob
+ */
+package SNES;
+import java.util.Scanner;
+
+public class SNESLand {
+    public static void main(String[] args) {
+        int infinite = 1; //sets up a infinite loop
+        SNESController controller1 = new SNESController();
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Lets play some Mega Man!!!");
+        System.out.println("Try using controller inputs using one input at a time!");
+        System.out.println("To hold a button, add H in front of it! Ex - 'H A'");
+        System.out.println("(LT)__________________________________(RT)");
+        System.out.println(" /   Up                              X \"");
+        System.out.println("|Left--Right    Select    Start    Y   A|");
+        System.out.println(" \" Down_____________________________B /");
+        System.out.println("");
+        
+        //Finds the move that will be preformed based on the button input
+        while(infinite == 1){
+            String userInput = scan.next(); 
+            if(userInput.toLowerCase().equals("up") || userInput.toLowerCase().equals("h up")){
+                controller1.press_Up();
+            }else if(userInput.toLowerCase().equals("down") || userInput.toLowerCase().equals("h down")){
+                controller1.press_Down();
+            }else if(userInput.toLowerCase().equals("left") || userInput.toLowerCase().equals("h left")){
+                controller1.hold_Left();
+            }else if(userInput.toLowerCase().equals("right") || userInput.toLowerCase().equals("h right")){
+                controller1.hold_Right();
+            }else if(userInput.toLowerCase().equals("lt") || userInput.toLowerCase().equals("h lt")){
+                controller1.press_leftTrig();
+            }else if(userInput.toLowerCase().equals("rt") || userInput.toLowerCase().equals("h rt")){
+                controller1.press_rightTrig();
+            }else if(userInput.toLowerCase().equals("a") || userInput.toLowerCase().equals("h a")){
+                controller1.press_a();
+            }else if(userInput.toLowerCase().equals("b") || userInput.toLowerCase().equals("h b")){
+                controller1.press_b();
+            }else if(userInput.toLowerCase().equals("x") || userInput.toLowerCase().equals("h x")){
+                controller1.press_x();
+            }else if(userInput.toLowerCase().equals("y") || userInput.toLowerCase().equals("h y")){
+                controller1.press_y();
+            }                
+            buttonPress(controller1);
+            System.out.println("Next input: ");
+        }
+    }
+
+    public static void buttonPress(SNESController controller1){
+        if(controller1 != null){
+            
+// 3 button combinations
+            if(controller1.holdY && controller1.holdLeft && controller1.b){
+                System.out.println("Mega Man is jumping to the left while charging his Mega Buster");
+            }else if(controller1.holdY && controller1.holdRight && controller1.b){
+                System.out.println("Mega Man is jumping to the right while charging his Mega Buster");
+            }else if(controller1.y && controller1.holdLeft && controller1.b){
+                System.out.println("Mega Man is jumping to the left firing normal shots!");
+            }else if(controller1.y && controller1.holdRight && controller1.b){
+                System.out.println("Mega Man is jumping to the right firing normal shots!");            
+// 2 button combinations
+            }else if(controller1.holdY && controller1.holdLeft){
+                System.out.println("Mega Man is charging his Mega Buster while running left!");                
+            }else if(controller1.holdY && controller1.holdRight){
+                System.out.println("Mega Man is charging his Mega Buster while running right!");
+            }else if(controller1.holdY && controller1.b){
+                System.out.println("Mega Man charges his attack in the air");
+            }else if(controller1.y && controller1.holdLeft){
+                System.out.println("Mega Man is shooting and running left!");
+            }else if(controller1.y && controller1.holdRight){
+                System.out.println("Mega Man is shooting and running right!");                
+            }else if(controller1.y && controller1.b){
+                System.out.println("Mega Man is firing his shots in the air");           
+// 1 button actions
+            }else if(controller1.holdLeft){
+                System.out.println("Mega Man is running to the left");
+            }else if(controller1.holdRight){
+                System.out.println("Mega Man is running to the right");
+            }else if(controller1.y){
+                System.out.println("Mega Man is shooting in place");
+            }else if(controller1.holdY){
+                System.out.println("Mega Man is charging up an attack!");
+            }else if(controller1.b){
+                System.out.println("Mega Man jumps");
+            }else if(controller1.left_trigger || controller1.right_trigger){
+                System.out.println("Mega Man switches his weapons");
+            }else{
+                System.out.println("Mega Man stands still");
+            }
+            //Resets these to false since they are meant to be one input commands with a end quick end
+            controller1.right_trigger = false;
+            controller1.left_trigger = false;
+            controller1.b = false;
+        }
+    }
+}
